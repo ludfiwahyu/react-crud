@@ -42,7 +42,7 @@ export const fetchSellers = () => {
       });
       dispatch({
         type: FETCH_SELLERS,
-        payload: response,
+        payload: response.data,
       });
     } catch (err) {
       dispatch({
