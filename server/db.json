@@ -1,0 +1,42 @@
+{
+  "seller": [
+    {
+      "seller_code": "1899cf60-ce9b-4c48-bea3-380ca3125d82",
+      "seller_name": "ERIGO",
+      "address": "Jakarta",
+      "products": [
+        {
+          "id": 1641532285,
+          "name": "BAJU",
+          "price": 120000,
+          "stock": 2000
+        },
+        {
+          "id": 1641532290,
+          "name": "JAKET",
+          "price": 120000,
+          "stock": 500
+        }
+      ]
+    },
+    {
+      "seller_code": "1759cf50-ce2b-4c48-bea3-564cb3125er2",
+      "seller_name": "JOSHE",
+      "address": "Jakarta",
+      "products": [
+        {
+          "id": 1641532283,
+          "name": "SEPATU",
+          "price": 700000,
+          "stock": 20
+        },
+        {
+          "id": 1641532290,
+          "name": "BAJU",
+          "price": 75000,
+          "stock": 267
+        }
+      ]
+    }
+  ]
+}
