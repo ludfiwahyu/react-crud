@@ -1,7 +1,21 @@
 import React from "react";
+import { useEffect } from "react";
 import { Table, Button } from "react-bootstrap";
+import { FcAddColumn } from "react-icons/fc";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchSellers } from "../store/actionCreator";
+
 
 export default function Sellers() {
+  const dispatch = useDispatch();
+  const { sellers, loading, error } = useSelector((state) => state.sellers);
+  
+  useEffect(() => {
+    dispatch(fetchSellers());
+  }, []);
+
+  console.log(sellers, "sellers");
+
   return (
     <div className="container">
       <div className="crud shadow-lg p-3 mb-5 mt-5 bg-body rounded">
@@ -47,7 +61,7 @@ export default function Sellers() {
             </div>
           </div>
           <div className="col-sm-3 mt-4">
-            <Button variant="primary" />
+            <FcAddColumn size="2em"/>
           </div>
           <p>ya</p>
         </div>
