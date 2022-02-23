@@ -5,22 +5,25 @@ import {
 } from "../actionType/sellers";
 import axios from "axios";
 
-export const addNewSeller = (sellers) => {
+export const addNewSeller = (payload) => {
+  console.log(payload, "payload");
   return async (dispatch, getstate) => {
     try {
       const response = await axios({
-        method: "post",
+        method: "POST",
         url: "http://localhost:4000/sellers",
-        data: sellers,
+        data: payload,
       });
       const result = await response.data;
-      const { sellers } = getstate().seller;
+      console.log(result, "result");
+      const { sellers } = getstate().sellers;
       const newSellers = [...sellers, result];
       dispatch({
         type: FETCH_SELLERS,
         payload: newSellers,
       });
     } catch (err) {
+      console.log(err, "error");
       dispatch({
         type: SET_ERROR_SELLERS,
         payload: err,

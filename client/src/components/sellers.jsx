@@ -1,7 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
 import { Table, Button } from "react-bootstrap";
-import { FcAddColumn } from "react-icons/fc";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchSellers } from "../store/actionCreator";
 import AddSeller from "./AddSeller";
