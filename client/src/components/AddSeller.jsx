@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { FcAddColumn } from "react-icons/fc";
 import { Modal } from "react-bootstrap";
@@ -21,11 +21,14 @@ const AddSeller = () => {
     },
   ]);
 
+  useEffect(() => {
+    
+  }, [inputSeller]);
+
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   const handleChangeSeller = (e) => {
-    console.log(e.target.value);
     setInputSeller({
       ...inputSeller,
       [e.target.name]: e.target.value,
@@ -34,7 +37,6 @@ const AddSeller = () => {
   };
 
   const handleChangeProduct = (index, e) => {
-    console.log(e.target.name, e.target.value);
     const values = [...productsFields];
     values[index][e.target.name] = e.target.value;
     setProductsFields(values);
@@ -50,7 +52,6 @@ const AddSeller = () => {
       ...inputSeller,
       products: productsFields,
     });
-    console.log(inputSeller, "inputSellerResult");
   };
 
   const handleAddProduct = () => {
