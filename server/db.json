@@ -1,6 +1,7 @@
 {
   "sellers": [
     {
+      "id": "1",
       "seller_code": "1899cf60-ce9b-4c48-bea3-380ca3125d82",
       "seller_name": "ERIGO",
       "address": "Jakarta",
@@ -20,6 +21,7 @@
       ]
     },
     {
+      "id": "2",
       "seller_code": "1759cf50-ce2b-4c48-bea3-564cb3125er2",
       "seller_name": "JOSHE",
       "address": "Jakarta",
@@ -37,6 +39,60 @@
           "stock": 267
         }
       ]
+    },
+    {
+      "seller_code": "53e25d-bc18-21a6-f8a3-645d62b46b6",
+      "seller_name": "Grey",
+      "address": "Jakarta",
+      "products": [
+        {
+          "id": "33128790780",
+          "name": "Tas",
+          "price": "50000",
+          "stock": "23"
+        }
+      ],
+      "id": "hTScMYw"
+    },
+    {
+      "seller_code": "4a2c4-c26d-fb7b-8c4-d3c2743f5fa",
+      "seller_name": "This One",
+      "address": "Tangerang",
+      "products": [
+        {
+          "id": "1591860606858",
+          "name": "Mouse",
+          "price": "500000",
+          "stock": "32"
+        },
+        {
+          "name": "Keyboard",
+          "price": "780000",
+          "stock": "34",
+          "id": "1315449615650"
+        }
+      ],
+      "id": "kU3kMHj"
+    },
+    {
+      "seller_code": "60d312-bb3-1fbe-578a-bb13a421f653",
+      "seller_name": "Buhun",
+      "address": "Bandung",
+      "products": [
+        {
+          "id": "642523223670",
+          "name": "Bihun",
+          "price": "2500",
+          "stock": "1000"
+        },
+        {
+          "name": "Micin",
+          "price": "1000",
+          "stock": "3511",
+          "id": "1620752428119"
+        }
+      ],
+      "id": "Wu8yPk_"
     }
   ]
 }

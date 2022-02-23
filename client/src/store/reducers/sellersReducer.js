@@ -20,6 +20,7 @@ export default function sellersReducer (state = initialState, action)  {
     case SET_LOADING_SELLERS:
       return {
         ...state,
+        loading: action.payload,
       };
     case SET_ERROR_SELLERS:
       return {

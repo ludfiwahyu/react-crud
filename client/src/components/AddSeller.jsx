@@ -1,11 +1,14 @@
 import React from "react";
 import { useState, useEffect } from "react";
-
+import { useDispatch } from "react-redux";
+import { addNewSeller } from "../store/actionCreator";
+import uuid from 'react-uuid'
 import { FcAddColumn } from "react-icons/fc";
 import { Modal } from "react-bootstrap";
 import { AiFillPlusCircle, AiFillMinusCircle } from "react-icons/ai";
 
 const AddSeller = () => {
+  const dispatch = useDispatch();
   const [show, setShow] = useState(false);
   const [inputSeller, setInputSeller] = useState({
     seller_code: "",
@@ -15,15 +18,15 @@ const AddSeller = () => {
   });
   const [productsFields, setProductsFields] = useState([
     {
+      id: "",
       name: "",
       price: "",
       stock: "",
     },
   ]);
+  const uniqueId = () => parseInt(Date.now() * Math.random(), 10).toString();
 
-  useEffect(() => {
-    
-  }, [inputSeller]);
+  useEffect(() => {}, [inputSeller]);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -31,6 +34,7 @@ const AddSeller = () => {
   const handleChangeSeller = (e) => {
     setInputSeller({
       ...inputSeller,
+      seller_code: uuid(),
       [e.target.name]: e.target.value,
       products: productsFields,
     });
@@ -38,11 +42,12 @@ const AddSeller = () => {
 
   const handleChangeProduct = (index, e) => {
     const values = [...productsFields];
+    values[index]["id"] = uniqueId();
     values[index][e.target.name] = e.target.value;
     setProductsFields(values);
     setInputSeller({
       ...inputSeller,
-      products: (values),
+      products: values,
     });
   };
 
@@ -52,6 +57,8 @@ const AddSeller = () => {
       ...inputSeller,
       products: productsFields,
     });
+    dispatch(addNewSeller(inputSeller));
+    handleClose();
   };
 
   const handleAddProduct = () => {
@@ -79,16 +86,6 @@ const AddSeller = () => {
           <Modal.Body>
             <form onSubmit={handleSubmit}>
               <div className="form-group">
-                <label>Seller Code</label>
-                <input
-                  name="seller_code"
-                  type="text"
-                  className="form-control"
-                  placeholder="Enter Seller Code"
-                  onChange={(e) => handleChangeSeller(e)}
-                />
-              </div>
-              <div className="form-group">
                 <label>Seller Name</label>
                 <input
                   name="seller_name"
@@ -111,43 +108,41 @@ const AddSeller = () => {
 
               <h5>Add Products</h5>
               <div className="form-inline">
-                <form>
-                  {productsFields.map((productsField, index) => (
-                    <div key={index}>
-                      <h6>Product {index + 1}</h6>
-                      <div className="form-group mx-sm-3 mb-2">
-                        <label>Product Name</label>
-                        <input
-                          name="name"
-                          type="text"
-                          className="form-control"
-                          placeholder="Enter Products"
-                          onChange={(e) => handleChangeProduct(index, e)}
-                        />
-                      </div>
-                      <div className="form-group mx-sm-3 mb-2">
-                        <label>Product Price</label>
-                        <input
-                          name="price"
-                          type="text"
-                          className="form-control"
-                          placeholder="Enter Products"
-                          onChange={(e) => handleChangeProduct(index, e)}
-                        />
-                      </div>
-                      <div className="form-group mx-sm-3 mb-2">
-                        <label>Product Stock</label>
-                        <input
-                          name="stock"
-                          type="text"
-                          className="form-control"
-                          placeholder="Enter Products"
-                          onChange={(e) => handleChangeProduct(index, e)}
-                        />
-                      </div>
+                {productsFields.map((productsField, index) => (
+                  <div key={index}>
+                    <h6>Product {index + 1}</h6>
+                    <div className="form-group mx-sm-3 mb-2">
+                      <label>Product Name</label>
+                      <input
+                        name="name"
+                        type="text"
+                        className="form-control"
+                        placeholder="Enter Products"
+                        onChange={(e) => handleChangeProduct(index, e)}
+                      />
                     </div>
-                  ))}
-                </form>
+                    <div className="form-group mx-sm-3 mb-2">
+                      <label>Product Price</label>
+                      <input
+                        name="price"
+                        type="number"
+                        className="form-control"
+                        placeholder="Enter Products"
+                        onChange={(e) => handleChangeProduct(index, e)}
+                      />
+                    </div>
+                    <div className="form-group mx-sm-3 mb-2">
+                      <label>Product Stock</label>
+                      <input
+                        name="stock"
+                        type="number"
+                        className="form-control"
+                        placeholder="Enter Products"
+                        onChange={(e) => handleChangeProduct(index, e)}
+                      />
+                    </div>
+                  </div>
+                ))}
                 <AiFillPlusCircle size="2rem" onClick={handleAddProduct} />
                 <AiFillMinusCircle size="2rem" onClick={handleRemoveProduct} />
               </div>
