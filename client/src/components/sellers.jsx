@@ -4,48 +4,21 @@ import { Table, Button } from "react-bootstrap";
 import { FcAddColumn } from "react-icons/fc";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchSellers } from "../store/actionCreator";
-
+import AddSeller from "./AddSeller";
 
 export default function Sellers() {
   const dispatch = useDispatch();
   const { sellers, loading, error } = useSelector((state) => state.sellers);
-  
+
   useEffect(() => {
     dispatch(fetchSellers());
   }, []);
 
   console.log(sellers, "sellers");
 
+
   return (
     <div className="container">
-      <div className="crud shadow-lg p-3 mb-5 mt-5 bg-body rounded">
-        <div className="row ">
-          <div className="col-sm-3 mt-5 mb-4 text-gred">
-            <div className="search">
-              <form className="form-inline">
-                <input
-                  className="form-control mr-sm-2"
-                  type="search"
-                  placeholder="Search Student"
-                  aria-label="Search"
-                />
-              </form>
-            </div>
-          </div>
-          <div
-            className="col-sm-3 offset-sm-2 mt-5 mb-4 text-gred"
-            style={{ color: "green" }}
-          >
-            <h2>
-              <b>Sellers List</b>
-            </h2>
-          </div>
-          <div className="col-sm-3 offset-sm-1  mt-5 mb-4 text-gred">
-            <Button variant="primary">Add New Seller</Button>
-          </div>
-        </div>
-      </div>
-
       <div className="shadow p-3 mb-5 bg-white rounded">
         <h2>Seller List </h2>
         <div className="row d-flex justify-content-between">
@@ -61,15 +34,14 @@ export default function Sellers() {
             </div>
           </div>
           <div className="col-sm-3 mt-4">
-            <FcAddColumn size="2em"/>
+            <AddSeller />
           </div>
-          <p>ya</p>
         </div>
       </div>
 
       <div className="row">
         <div className="table-responsive">
-          <Table striped bordered hover >
+          <Table striped bordered hover>
             <thead>
               <tr>
                 <th>Seller Code</th>
@@ -79,12 +51,14 @@ export default function Sellers() {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1899cf60-ce9b-4c48-bea3-380ca3125d82</td>
-                <td>ERIGO</td>
-                <td>Jakarta</td>
-                <td>Action</td>
-              </tr>
+              {sellers.map((seller, index) => (
+                <tr key={index}>
+                  <td>{seller.seller_code}</td>
+                  <td>{seller.seller_name}</td>
+                  <td>{seller.address}</td>
+                  <td>Details</td>
+                </tr>
+              ))}
             </tbody>
           </Table>
         </div>
