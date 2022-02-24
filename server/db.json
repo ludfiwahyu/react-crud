@@ -107,6 +107,20 @@
           "stock": "250"
         }
       ]
+    },
+    {
+      "id": 7,
+      "seller_code": "4d2a58-fd7-434-7b3-f4acc26bff",
+      "seller_name": "Angel",
+      "address": "Jakarta Selatan",
+      "products": [
+        {
+          "id": "1348378363078",
+          "name": "Gem",
+          "price": "80000000",
+          "stock": "2"
+        }
+      ]
     }
   ]
 }

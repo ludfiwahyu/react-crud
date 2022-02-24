@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { addNewSeller } from "../store/actionCreator";
 import { useSelector } from "react-redux";
-import uuid from 'react-uuid'
+import uuid from "react-uuid";
 import { FcAddColumn } from "react-icons/fc";
 import { Modal } from "react-bootstrap";
 import { AiFillPlusCircle, AiFillMinusCircle } from "react-icons/ai";
@@ -27,8 +27,6 @@ const AddSeller = () => {
     },
   ]);
   const { sellers } = useSelector((state) => state.sellers);
-  console.log(sellers.length, "panjang");
-
 
   const uniqueId = () => parseInt(Date.now() * Math.random(), 10).toString();
 

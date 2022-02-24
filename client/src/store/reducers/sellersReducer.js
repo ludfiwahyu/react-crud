@@ -3,16 +3,18 @@ import {
   FETCH_PRODUCT_DETAIL,
   SET_LOADING_SELLERS,
   SET_ERROR_SELLERS,
-} from '../actionType/sellers';
+  API_IMAGE,
+} from "../actionType/sellers";
 
 const initialState = {
   sellers: [],
   productDetail: {},
   loading: false,
   error: null,
+  apiImage: "",
 };
 
-export default function sellersReducer (state = initialState, action)  {
+export default function sellersReducer(state = initialState, action) {
   switch (action.type) {
     case FETCH_SELLERS:
       return {
@@ -25,7 +27,6 @@ export default function sellersReducer (state = initialState, action)  {
         productDetail: action.payload,
       };
     case SET_LOADING_SELLERS:
-      console.log(action, 'action');
       return {
         ...state,
         loading: action.payload,
@@ -34,6 +35,11 @@ export default function sellersReducer (state = initialState, action)  {
       return {
         ...state,
         error: action.payload,
+      };
+    case API_IMAGE:
+      return {
+        ...state,
+        apiImage: action.payload,
       };
     default:
       return state;
