@@ -1,0 +1,143 @@
+.Product {
+  flex: 4;
+  padding: 20px;
+}
+
+.ProductTitleContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ProductContainer {
+  display: flex;
+  margin-top: 20px;
+}
+
+.ProductShow {
+  flex: 1;
+  padding: 20px;
+  -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+}
+
+.ProductUpdate {
+  flex: 2;
+  padding: 20px;
+  -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  margin-left: 20px;
+}
+
+.ProductShowTop {
+  display: flex;
+  align-items: center;
+}
+
+.ProductShowImg {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.ProductShowTopTitle {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
+
+.ProductShowProductname {
+  font-weight: 600;
+}
+
+.ProductShowProductTitle {
+  font-weight: 300;
+}
+
+.ProductShowBottom {
+  margin-top: 20px;
+}
+
+.ProductShowTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgb(175, 170, 170);
+}
+
+.ProductShowInfo {
+  display: flex;
+  align-items: center;
+  margin: 20px 0px;
+  color: #444;
+}
+
+.ProductShowIcon {
+  font-size: 16px !important;
+}
+
+.ProductShowInfoTitle {
+  margin-left: 10px;
+}
+
+.ProductUpdateTitle {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.ProductUpdateForm {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.ProductUpdateItem {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.ProductUpdateItem > label {
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.ProductUpdateInput {
+  border: none;
+  width: 250px;
+  height: 30px;
+  border-bottom: 1px solid gray;
+}
+
+.ProductUpdateRight {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.ProductUpdateUpload {
+  display: flex;
+  align-items: center;
+}
+
+.ProductUpdateImg {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.ProductUpdateIcon {
+  cursor: pointer;
+}
+
+.ProductUpdateButton {
+  border-radius: 5px;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+  background-color: darkblue;
+  color: white;
+  font-weight: 600;
+}
