@@ -3,18 +3,22 @@ import { useEffect } from "react";
 import { Table, Button } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchSellers } from "../store/actionCreator";
+import { useNavigate } from "react-router-dom";
 import AddSeller from "./AddSeller";
+import { FcEditImage, FcDeleteColumn, FcViewDetails } from "react-icons/fc";
 
 export default function Sellers() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { sellers, loading, error } = useSelector((state) => state.sellers);
 
   useEffect(() => {
     dispatch(fetchSellers());
   }, []);
 
-  console.log(sellers, "sellers");
-
+  const handleDetailProduct = (id) => {
+    navigate(`/sellers/products/${id + 1}`);
+  };
 
   return (
     <div className="container">
@@ -40,26 +44,47 @@ export default function Sellers() {
 
       <div className="row">
         <div className="table-responsive">
-          <Table striped bordered hover>
-            <thead>
-              <tr>
-                <th>Seller Code</th>
-                <th>Seller Name</th>
-                <th>Address</th>
-                <th>Products</th>
-              </tr>
-            </thead>
-            <tbody>
-              {sellers.map((seller, index) => (
-                <tr key={index}>
-                  <td>{seller.seller_code}</td>
-                  <td>{seller.seller_name}</td>
-                  <td>{seller.address}</td>
-                  <td>Details</td>
+          {loading ? (
+            <div className="container">
+              <img src={require("../assets/loading.jpg")} />
+            </div>
+          ) : (
+            <Table striped bordered hover>
+              <thead>
+                <tr>
+                  <th>Seller Code</th>
+                  <th>Seller Name</th>
+                  <th>Address</th>
+                  <th>Products</th>
+                  <th>Action</th>
                 </tr>
-              ))}
-            </tbody>
-          </Table>
+              </thead>
+              <tbody>
+                {sellers.map((seller, index) => {
+                  return (
+                    <tr key={index}>
+                      <td>{seller.seller_code}</td>
+                      <td>{seller.seller_name}</td>
+                      <td>{seller.address}</td>
+                      <td>
+                        <FcViewDetails
+                          size="2rem"
+                          onClick={(e) => handleDetailProduct(index)}
+                        />
+                      </td>
+                      <td>
+                        <FcEditImage
+                          size="2rem"
+                          // onClick={(e) => handleEditProduct(index)}
+                        />
+                        <FcDeleteColumn size="2rem" />
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </Table>
+          )}
         </div>
       </div>
     </div>

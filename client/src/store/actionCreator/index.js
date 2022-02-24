@@ -1,5 +1,6 @@
 import {
   FETCH_SELLERS,
+  FETCH_PRODUCT_DETAIL,
   SET_LOADING_SELLERS,
   SET_ERROR_SELLERS,
 } from "../actionType/sellers";
@@ -45,6 +46,39 @@ export const fetchSellers = () => {
       });
       dispatch({
         type: FETCH_SELLERS,
+        payload: response.data,
+      });
+    } catch (err) {
+      dispatch({
+        type: SET_ERROR_SELLERS,
+        payload: err.response,
+      });
+    } finally {
+      dispatch({
+        type: SET_LOADING_SELLERS,
+        payload: false,
+      });
+    }
+  };
+};
+
+export const fetchProductDetail = (id) => {
+  console.log(id, "idindex");
+  return async (dispatch, getstate) => {
+    dispatch({
+      type: SET_LOADING_SELLERS,
+      payload: true,
+    });
+    try {
+      const { loading } = getstate().sellers;
+      console.log(loading, "this");
+      const response = await axios({
+        method: "get",
+        url: `http://localhost:4000/sellers/${id}`,
+      });
+      console.log(response.data, "responseFetchProductDetail");
+      dispatch({
+        type: FETCH_PRODUCT_DETAIL,
         payload: response.data,
       });
     } catch (err) {

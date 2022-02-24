@@ -52,7 +52,7 @@
           "stock": "23"
         }
       ],
-      "id": "hTScMYw"
+      "id": "3"
     },
     {
       "seller_code": "4a2c4-c26d-fb7b-8c4-d3c2743f5fa",
@@ -72,7 +72,7 @@
           "id": "1315449615650"
         }
       ],
-      "id": "kU3kMHj"
+      "id": "4"
     },
     {
       "seller_code": "60d312-bb3-1fbe-578a-bb13a421f653",
@@ -92,7 +92,21 @@
           "id": "1620752428119"
         }
       ],
-      "id": "Wu8yPk_"
+      "id": "5"
+    },
+    {
+      "id": 6,
+      "seller_code": "bbf2f78-b8d1-675b-f6f6-c068f0b2a8e4",
+      "seller_name": "Miko",
+      "address": "Karawang",
+      "products": [
+        {
+          "id": "247179891082",
+          "name": "Herbal Powder",
+          "price": "89000",
+          "stock": "250"
+        }
+      ]
     }
   ]
 }

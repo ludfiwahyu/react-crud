@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { addNewSeller } from "../store/actionCreator";
+import { useSelector } from "react-redux";
 import uuid from 'react-uuid'
 import { FcAddColumn } from "react-icons/fc";
 import { Modal } from "react-bootstrap";
@@ -11,6 +12,7 @@ const AddSeller = () => {
   const dispatch = useDispatch();
   const [show, setShow] = useState(false);
   const [inputSeller, setInputSeller] = useState({
+    id: "",
     seller_code: "",
     seller_name: "",
     address: "",
@@ -24,6 +26,10 @@ const AddSeller = () => {
       stock: "",
     },
   ]);
+  const { sellers } = useSelector((state) => state.sellers);
+  console.log(sellers.length, "panjang");
+
+
   const uniqueId = () => parseInt(Date.now() * Math.random(), 10).toString();
 
   useEffect(() => {}, [inputSeller]);
@@ -34,6 +40,7 @@ const AddSeller = () => {
   const handleChangeSeller = (e) => {
     setInputSeller({
       ...inputSeller,
+      id: sellers.length + 1,
       seller_code: uuid(),
       [e.target.name]: e.target.value,
       products: productsFields,
